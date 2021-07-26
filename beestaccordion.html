@@ -511,7 +511,7 @@ function generateAccordionHTML(classAccord,resizedHead,monAccBtnTxt,monAccConten
 		monAccOutput += monAccBtnTxt[secNum]
 		
 		monAccOutput += "</span></button></"+classAccord.drawerSize+"></div><div id=\"content" + numCode
-		monAccOutput += "\" class=\"collapse "+changesByDrawer.showhide+classAccord.drawerBorder+changesByDrawer.roundBottom+"\" aria-labelledby=\"head" + numCode
+		monAccOutput += "\" class=\"collapse show "+changesByDrawer.showhide+classAccord.drawerBorder+changesByDrawer.roundBottom+"\" aria-labelledby=\"head" + numCode
 		monAccOutput += "\" data-parent=\"#accordion" + randString + "\"><div class=\"card-body p-1\"><div class=\"m-1 p-1\"><div class=\"accDiv\">"
 		
 		monAccOutput += monAccContent[secNum]
@@ -519,6 +519,8 @@ function generateAccordionHTML(classAccord,resizedHead,monAccBtnTxt,monAccConten
 	} 
 	
 	monAccOutput+="</div></div></div>"
+	
+	monAccOutput+="<script>var accordionContents = document.querySelectorAll('div[id^=content" + randString + "]');[].forEach.call(accordionContents, function(element, index) {if (index != 0) element.classList.remove('show')});</scrip"+"t>"
 	
 	return monAccOutput
 }
